@@ -1,5 +1,5 @@
 Assignment - 10 
-[Render Link](https://s24wb42suravarapu.onrender.com)
+[Render Link](https://s24db42suravarapu.onrender.com)
 
 Class: Lighthouses
 Attributes:
