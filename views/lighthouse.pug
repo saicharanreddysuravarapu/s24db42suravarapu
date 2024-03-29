@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  -
+  .container-fluid
+  .row
+    - var results = [{ name: "Cape Henry Lighthouse", location: "Virginia Beach, VA", yearBuilt: 1792 },{ name: "Portland Head Light", location: "Cape Elizabeth, ME", yearBuilt: 1791 },{ name: "Heceta Head Lighthouse", location: "Florence, OR", yearBuilt: 1894 }]
+    each item, index in results
+      .col-sm-2
+        div
+        .card(onclick=`buy(${index})`)
+          .card-body
+            p Name: #{item.name}
+            p Location: #{item.location}
+            p Year Built: #{item.yearBuilt}
+            
+
+  script.
+    function buy(index) {
+      alert(`You purchased item ${index}.`);
+    }        
