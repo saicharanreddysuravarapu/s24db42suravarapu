@@ -1,22 +1,21 @@
 extends layout
 
 block content
-  h1= title
-  -
+  - let items = results
+ 
   .container-fluid
-  .row
-    - var results = [{ name: "Cape Henry Lighthouse", location: "Virginia Beach, VA", yearBuilt: 1792 },{ name: "Portland Head Light", location: "Cape Elizabeth, ME", yearBuilt: 1791 },{ name: "Heceta Head Lighthouse", location: "Florence, OR", yearBuilt: 1894 }]
-    each item, index in results
-      .col-sm-2
-        div
-        .card(onclick=`buy(${index})`)
-          .card-body
-            p Name: #{item.name}
-            p Location: #{item.location}
-            p Year Built: #{item.yearBuilt}
-            
-
+    .row
+      each item, index in items
+        .col-sm-4
+          .instrument(onclick=`buy(${index})`)
+            h3 #{item.lighthouse_type}
+            p size: #{item.size}
+            p cost: #{item.cost}
+          .col-sm-2
+            p name: #{item.lighthouse_type}
+            p size: #{item.size}
+            p cost: #{item.cost}
   script.
     function buy(index) {
-      alert(`You purchased item ${index}.`);
-    }        
+      alert("You purchased item " + index);
+    }
