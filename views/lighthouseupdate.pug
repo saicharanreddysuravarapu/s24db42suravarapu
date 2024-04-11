@@ -1,0 +1,39 @@
+extends layout
+block content
+  h1= title
+    - let lighthouseid = toShow._id
+    - let lighthouse_type = toShow.lighthouse_type
+    - let size = toShow.size
+    - let cost = toShow.cost
+    div.row(class='mb-2')
+      div.mr-1 ID is
+      div #{lighthouseid}
+    - let actionid = "/resource/lighthouse/" + lighthouseid
+    form(id='lighthouseForm', action= actionid, method="PUT")
+      div.form-group
+        label.lighthouseAttr(for='lighthouse_type') lighthouse type
+        input#lighthouse_type(type='text', name='lighthouse_type' )
+      div.form-group
+        label.lighthouseAttr(for='size') size
+        input#size(type='text', name='size' )
+      div.form-group
+        label.lighthouseAttr(for='cost') cost
+        input#cost(type='number', name='cost' )
+      input(type="submit")
+    script.
+      document.forms['lighthouseForm'].addEventListener('submit', (event) => {
+        event.preventDefault();
+        // TODO do something here to show user that form is being submitted
+        fetch(event.target.action, {
+          method: 'PUT',
+          body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+        }).then((resp) => {
+          return resp.text(); //resp.json();or whatever the server sends
+        }).then((body) => {
+          alert("Update succeeded");
+          // TODO handle body
+        }).catch((error) => {
+          // TODO handle error
+          alert("Update failed: " + error);
+        });
+      });

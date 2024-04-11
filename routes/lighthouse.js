@@ -15,4 +15,6 @@ router.get('/', lighthouse_controlers.lighthouse_view_all_Page );
 router.get('/detail', lighthouse_controlers.lighthouse_view_one_Page);
 /* GET create costume page */
 router.get('/create', lighthouse_controlers.lighthouse_create_Page);
+/* GET create update page */
+router.get('/update', lighthouse_controlers.lighthouse_update_Page);
 module.exports = router;
