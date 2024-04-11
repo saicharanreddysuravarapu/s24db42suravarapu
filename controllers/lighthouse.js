@@ -144,6 +144,19 @@ res.status(500)
 res.send(`{'error': '${err}'}`);
 }
 };
+// Handle a delete one view with id from query
+exports.lighthouse_delete_Page = async function(req, res) {
+    console.log("Delete view for id " + req.query.id)
+    try{
+    result = await lighthouse.findById(req.query.id)
+    res.render('lighthousedelete', { title: 'Lighthouse Delete', toShow:
+    result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };    
     
 
     
