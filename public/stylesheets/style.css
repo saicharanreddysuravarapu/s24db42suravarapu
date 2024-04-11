@@ -7,7 +7,21 @@ a {
   color: #00B7FF;
 }
 
+form {
+  width: 70%;
+  position: relative;
+  left: 120px;
+}
+
 .lighthouseAttr {
-  background-color: aquamarine;
-  width: 175px;
+  background-color: rgb(255, 127, 129);
+  display: inline-block;
+  width: 180px;
+  text-align: center;
+  padding: 7px;
+  margin-bottom: 10px;
+ }
+
+ .btn {
+  margin-top: 7px;
  }

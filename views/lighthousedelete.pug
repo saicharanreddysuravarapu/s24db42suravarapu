@@ -1,16 +1,19 @@
 extends layout
- 
+
 block content
   h1= title
+  if (toShow == null)
+    h2 No instance to delete 
+  else
     - let lighthouseid = toShow._id
     - let lighthouse_type = toShow.lighthouse_type
     - let size = toShow.size
     - let cost = toShow.cost
     - let actionid = "/resource/lighthouse/" + lighthouseid
- 
+
     script.
       let actionid = "#{actionid}"
-   
+
     div
       div.row
         div(class='lighthouseAttr mr-3') lighthouse ID is:
@@ -19,15 +22,15 @@ block content
         div(class='lighthouseAttr mr-3') lighthouse_type is:
         div #{lighthouse_type}
       div.row
-        div(class='lighthouseAttr mr-3')  size is:
+        div(class='lighthouseAttr mr-3') size is:
         div #{size}
       div.row
-        div(class='lighthousetAttr mr-3') cost is:
+        div(class='lighthouseAttr mr-3') cost is:
         div #{cost}
-   
+
     button(class="btn btn-danger m-2", onclick="deleteOnid()") Delete
     button(class="btn btn-secondary m-2", onclick="cancel()") Cancel
- 
+
     script.
       function cancel() {
         // Go back to the home page for the watercraft collection

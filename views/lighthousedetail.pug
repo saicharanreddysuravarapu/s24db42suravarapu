@@ -1,7 +1,10 @@
 extends layout
- 
+
 block content
   h1= title
+  if (toShow == null)
+    h2 No instance of lighthouse
+  else
     - let id = toShow._id
     - let lighthouse_type = toShow.lighthouse_type
     - let size = toShow.size
