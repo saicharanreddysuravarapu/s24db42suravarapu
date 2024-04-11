@@ -1,0 +1,21 @@
+extends layout
+ 
+block content
+  h1= title
+    - let id = toShow._id
+    - let lighthouse_type = toShow.lighthouse_type
+    - let size = toShow.size
+    - let cost = toShow.cost
+    div
+      div.row
+        div(class='lighthouseAttr mr-3') lighthouse ID is:
+          div #{id}
+      div.row
+        div(class='lighthouseAttr mr-3') lighthouse_type is:
+          div #{lighthouse_type}
+      div.row
+        div(class='lighthouseAttr mr-3') size is:
+          div #{size}
+      div.row
+        div(class='mineralsAttr mr-3') cost is:
+          div #{cost}
