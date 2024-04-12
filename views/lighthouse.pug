@@ -2,7 +2,18 @@ extends layout
 
 block content
   - let items = results
- 
+  div(class="container-fluid")
+    div(class="row")
+      each item in items
+        - let destination = `dispatch(\"/lighthouse/update?id=${item._id}\")`
+        div(class="row-sm-2", class="m-1") Item #{item.lighthouse_type}(#{item.size}) is #{item.cost})
+          button.btn(class="btn-primary ml-1", onclick= destination) Update
+
+  script.
+    function dispatch(path){
+      window.location.href=path;
+    }
+
   .container-fluid
     .row
       each item, index in items
@@ -11,10 +22,11 @@ block content
             h3 #{item.lighthouse_type}
             p size: #{item.size}
             p cost: #{item.cost}
-          .col-sm-2
-            p name: #{item.lighthouse_type}
-            p size: #{item.size}
-            p cost: #{item.cost}
+        .col-sm-2
+          p name: #{item.lighthouse_type}
+          p size: #{item.size}
+          p cost: #{item.cost}
+
   script.
     function buy(index) {
       alert("You purchased item " + index);
