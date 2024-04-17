@@ -2,12 +2,18 @@ extends layout
 
 block content
   - let items = results
+  - let destination = `dispatch("/lighthouse/create")`
+    button.btn(class="btn-primary ml-1", onclick= destination) click here to create New Ligthhouse 
   div(class="container-fluid")
     div(class="row")
       each item in items
-        - let destination = `dispatch(\"/lighthouse/update?id=${item._id}\")`
+        - let destination1 = `dispatch(\"/lighthouse/update?id=${item._id}\")`
+        - let destination2= `dispatch(\"/lighthouse/detail?id=${item._id}\")`
+        - let destination3= `dispatch(\"/lighthouse/delete?id=${item._id}\")`
         div(class="row-sm-2", class="m-1") Item #{item.lighthouse_type}(#{item.size}) is #{item.cost})
-          button.btn(class="btn-primary ml-1", onclick= destination) Update
+          button.btn(class="btn-primary ml-1", onclick= destination1) Update
+          button.btn(class="btn-primary ml-1", onclick= destination2) Detail
+          button.btn(class="btn-primary ml-1", onclick= destination3) Delete
 
   script.
     function dispatch(path){
